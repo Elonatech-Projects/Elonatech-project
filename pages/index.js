@@ -286,6 +286,114 @@ export default function Home() {
     </div>
   </div>
 </section>
+{/* Our Products Section */}
+       <section className={styles.productsSection}>
+      <h4 className={styles.productsTag}>Our Products</h4>
+      <h2  className={styles.productsTitle}>
+        Comprehensive IT SOLUTIONS<br />
+        that sets your business apart
+      </h2>
+      <p className={styles.productsSubtitle}>Bringing Speed to your business</p>
+
+      <div className={styles.productsGrid}>
+        {[{
+          image: "/image23.jpg",
+          label: "DIGISCHOOL",
+          icon: "fas fa-graduation-cap",
+          description: "Comprehensive solution for administration, documentation, tracking, reporting, and automation for primary and secondary schools",
+        }, {
+          image: "/image24.jpg",
+          label: "SPEEDUCATION",
+          icon: "fas fa-university",
+          description: "All in one learning management system for colleges and higher institutions",
+        }, {
+          image: "/image25.jpg",
+          label: "SPEED ERP SOLUTION",
+          icon: "fas fa-cogs",
+          description: "Comprehensive ERP software for enterprise resource planning.",
+        }].map((product, index) => (
+          <div className={styles.productHoverCard} key={index}>
+            <div className={styles.productImageWrapper}>
+              <Image src={product.image} alt={product.label} width={300} height={250} unoptimized />
+            </div>
+            <div className={styles.productBase}>
+              <i className={product.icon}></i> {product.label}
+            </div>
+            <div className={styles.productOverlayWrapper}>
+              <div className={styles.productOverlay}>
+                <div className={styles.productDetail}>
+                  <div className={styles.productTitleBox}>
+                    <i className={product.icon}></i>
+                    <h3>{product.label}</h3>
+                  </div>
+                  <p>{product.description}</p>
+                  <button className={styles.learnMoreBtn}><i className="fas fa-bolt"></i> Learn More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.viewAllBtnContainer}>
+        <button className={styles.viewAllBtn}>
+          View all our products <i className="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </section>
+    
+<section className="caseStudiesSection">
+  <div className="caseStudiesHeader">
+    <div className="textArea">
+      <h2>Case Studies</h2>
+      <p>
+        We’re proud to have helped build innovative solutions solving complex
+        problems across varying industries. Check out what we’ve been up to.
+      </p>
+    </div>
+    <button className="seeMoreBtn">
+      See more of our work <i className="fas fa-paper-plane"></i>
+    </button>
+  </div>
+
+  <div className="caseStudiesGrid">
+  
+    <div className="caseStudyItem">
+      <div className="caseStudyText pinkBG">
+        <h3>Integration of a secured and reliable examination platform</h3>
+        <p>
+          We built a hitch-free proctoring software for the School of Public
+          Health, University of Port Harcourt that offers students and test takers
+          the freedom to take a proctored exam at any time in any given location…
+        </p>
+        <button className="caseStudyBtn">
+          View Case Study <i className="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div className="caseStudyImageWrapper">
+        <img src="/image26.jpg" alt="Case Study Image 1" className="caseStudyImg" />
+      </div>
+    </div>
+
+  
+    <div className="caseStudyItem reverse">
+      <div className="caseStudyImageWrapper">
+        <img src="/image27.jpg" alt="Case Study Image 2" className="caseStudyImg" />
+      </div>
+      <div className="caseStudyText whiteBG">
+        <h3>Hybrid Learning Facility</h3>
+        <p>
+          We developed a platform that can accommodate students who are unable to
+          attend classes in person while also allowing students to attend classes
+          in person or remotely with real-time audio and visual communication…
+        </p>
+        <button className="caseStudyBtn">
+          View Case Study <i className="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
 
     </div>
