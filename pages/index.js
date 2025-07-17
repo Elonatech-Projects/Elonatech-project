@@ -1,11 +1,48 @@
  // File: pages/index.js (Next.js)
 
-import { useState } from "react";
+
+import { useState, useRef, useEffect } from "react"; // already imported useState
+
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+ 
 
 export default function Home() {
   const [activeService, setActiveService] = useState("network");
+  const [techVisible, setTechVisible] = useState(false);
+const [clientVisible, setClientVisible] = useState(false);
+
+const techRef = useRef(null);
+const clientRef = useRef(null);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target;
+        if (entry.isIntersecting) {
+          if (target.id === "tech") {
+            setTechVisible(true);
+            setTimeout(() => setTechVisible(false), 2000);
+          } else if (target.id === "clients") {
+            setClientVisible(true);
+            setTimeout(() => setClientVisible(false), 2000);
+          }
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  if (techRef.current) observer.observe(techRef.current);
+  if (clientRef.current) observer.observe(clientRef.current);
+
+  return () => {
+    if (techRef.current) observer.unobserve(techRef.current);
+    if (clientRef.current) observer.unobserve(clientRef.current);
+  };
+}, []);
+
 
   const services = {
     it: {
@@ -394,6 +431,170 @@ export default function Home() {
     </div>
   </div>
 </section>
+ 
+{/* Insights & Expertise Section */}
+  <section className={styles.blogSection}>
+  <div className={styles.blogHeader}>
+    <p className={styles.blogTag}>Our Blog</p>
+    <h2 className={styles.blogTitle}>Insights & Expertise</h2>
+    <p className={styles.blogSubtitle}>
+      Explore Our Blog for Expert Insights and Industry Trends
+    </p>
+  </div>
+
+  <div className={styles.blogList}>
+    {[
+      {
+        image: "/image28.jpg",
+        title: "Empowering the Next Generation of Women in Tech",
+        date: "April 21, 2025",
+        excerpt: "In a world increasingly driven by technology, the voices shaping innovation must be as diverse as the people it serves. Yet, across ...",
+      },
+      {
+        image: "/stem.jpg",
+        title: "Why We Need More Women in STEM Now",
+        date: "April 15, 2025",
+        excerpt: "STEM: Science, technology, engineering, and mathematics shapes how we live, work, and solve problems every day. Yet, despite the growing demand for ...",
+      },
+      {
+        image: "/soft skills.jpg",
+        title: "Soft Skills that Matter in Tech",
+        date: "April 10, 2025",
+        excerpt: "In the world of tech, coding languages, frameworks, and digital tools often take center stage. But beyond the lines of code and ...",
+      },
+      {
+        image: "/team.jpg",
+        title: "Why Hands-On Learning Is More Effective Than Theory",
+        date: "April 9, 2025",
+        excerpt: "For those eager to master new skills today, SpeedLink Hi-Tech Solutions Limited is here to guide you. With hands-on training programs designed ...",
+      },
+    ].map((post, index) => (
+      <div key={index} className={styles.blogPost}>
+        <div className={styles.blogImgWrapper}>
+          <img src={post.image} alt={post.title} className={styles.blogImg} />
+        </div>
+        <div className={styles.blogContent}>
+          <span className={styles.blogCategory}>Uncategorized</span>
+          <h3 className={styles.blogPostTitle}>{post.title}</h3>
+          <p className={styles.blogMeta}>
+            <strong>Admin Speedlink</strong> &nbsp;.&nbsp; {post.date} &nbsp;.&nbsp; No Comments
+          </p>
+          <p className={styles.blogExcerpt}>{post.excerpt}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+{/* Technology Stack Section */}
+    <section className={styles.techStackSection}>
+        <h2 className={styles.sectionTitle}>Technology stack</h2>
+        <div className={styles.scrollHintWrapper}>
+          <div
+            ref={techRef}
+            id="tech"
+            className={`${styles.techIcons} ${techVisible ? styles.wiggle : ""}`}
+          >
+            {[
+              "/android.png",
+              "/postgre.png",
+              "/node.png",
+              "/gulp.png",
+              "/react.png",
+              "/css.png",
+              "/python.png",
+              "/php.png",
+              "/android.png",
+            ].map((icon, index) => (
+              <img
+                key={index}
+                src={icon}
+                alt={`Tech ${index}`}
+                className={styles.techIcon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Top Clients Section */}
+      <section className={styles.clientsSection}>
+        <h2 className={styles.sectionTitle}>Our Top Clients</h2>
+        <p className={styles.clientsSubtitle}>Meet our happy clients</p>
+        <div className={styles.scrollHintWrapper}>
+          <div
+            ref={clientRef}
+            id="clients"
+            className={`${styles.clientsLogos} ${clientVisible ? styles.wiggle : ""}`}
+          >
+            {[
+              "/laser.png",
+              "/fast.png",
+              "/prim.png",
+              "/cgrp-logo.png",
+            ].map((logo, index) => (
+              <img
+                key={index}
+                src={logo}
+                alt={`Client ${index}`}
+                className={styles.clientLogo}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+{/* Footer Section */}
+<footer className={styles.footerSection}>
+  <div className={styles.footerGrid}>
+    <div className={styles.footerColumn}>
+      <img src="/marc2020.png" alt="Speedlink Logo" className={styles.footerLogo} />
+      <p>
+        Providing ICT solutions that make businesses stand out. We can provide you with the
+        highest levels of technical expertise, strategic thinking, and hands-on skills.
+      </p>
+    </div>
+    <div className={styles.footerColumn}>
+      <h4>Services</h4>
+      <ul>
+        <li>Digital Services</li>
+        <li>Cloud Services</li>
+        <li>Networking Services</li>
+        <li>Certified Training</li>
+      </ul>
+    </div>
+    <div className={styles.footerColumn}>
+      <h4>Quick Links</h4>
+      <ul>
+        <li>Our Products</li>
+        <li>Case Studies</li>
+        <li>Who we are</li>
+        <li>Why choose us</li>
+        <li>What we do</li>
+        <li>Meet our Team</li>
+      </ul>
+    </div>
+    <div className={styles.footerColumn}>
+      <h4>Locate us</h4>
+      <p>Road 6 Extension, Okey Wali Estate,<br />Rumualogu, Port Harcourt, Rivers State</p>
+      <div className={styles.contactBox}>
+        <i className="fas fa-phone"></i> tel: +2349167716220
+      </div>
+      <div className={styles.contactBox}>
+        <i className="fas fa-envelope"></i> info@speedlinkng.com
+      </div>
+      <div className={styles.socialIcons}>
+        <i className="fab fa-facebook-f"></i>
+        <i className="fab fa-twitter"></i>
+        <i className="fab fa-youtube"></i>
+        <i className="fab fa-instagram"></i>
+        <i className="fab fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
 
 
     </div>

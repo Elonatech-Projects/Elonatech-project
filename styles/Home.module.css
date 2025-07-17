@@ -570,6 +570,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
+  
   justify-items: center;
 }
 
@@ -579,8 +580,8 @@
   padding: 2rem 1rem;
   border-radius: 10px;
   transition: all 0.3s ease;
-  width: 100%;
-  max-width: 200px;
+  width: 150%;
+  max-width: 220px;
 }
 
 .industryCard:hover {
@@ -649,6 +650,8 @@
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
+  
+ 
 }
 
 .productHoverCard {
@@ -663,7 +666,7 @@
 .productImageWrapper {
   border-radius: 30px 30px 0 0;
   overflow: hidden;
-  padding: 20px;
+  padding: 40px;
 }
 
 .productBase {
@@ -781,5 +784,472 @@
 .viewAllBtn:hover {
   background: #a30e24;
 }
- /* case studies css */
- 
+    /* our blog */
+   .blogSection {
+  background: #f9f9f9;
+  padding: 80px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.blogHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.blogTag {
+  color: #c8102e;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.blogTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.blogSubtitle {
+  color: #555;
+  font-size: 0.95rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.blogList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 1270px; /* Increased width */
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.blogPost {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.blogImgWrapper {
+  width: 340px;
+  height: 240px;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  position: cover cover ;
+}
+
+.blogPost:first-child .blogImgWrapper {
+  height: 400px;
+}
+
+.blogImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover cover;
+  transform: scale(1.05);
+  transition: transform 0.6s ease;
+}
+
+.blogImgWrapper:hover .blogImg {
+  transform: scale(1.2);
+}
+
+.blogContent {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blogCategory {
+  background-color: #eee;
+  color: #555;
+  font-size: 0.7rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 100px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.blogPostTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.blogMeta {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.blogExcerpt {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.6;
+}
+/* ========== TECHNOLOGY STACK SECTION ========== */
+.techStackSection {
+  background-color: #2e2e2e;
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.techStackSection h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.techStackSection h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: #3081f7;
+  margin: 8px auto 0;
+  border-radius: 4px;
+}
+
+.techIcons {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.techIcon {
+  width: 100px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.techIcon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* ========== TOP CLIENTS SECTION ========== */
+ .clientsSection {
+  background-color: #ffffff;
+  padding: 60px 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.clientsSection h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.clientsSection h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: #3081f7;
+  margin: 8px auto;
+  border-radius: 4px;
+}
+
+.clientsSubtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.clientsLogos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 160px;
+  max-width: 1700px; /* reduced from 1400px */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.clientLogo {
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.clientLogo:hover {
+  transform: scale(1.05);
+}
+/* Outer wrapper for scrollability and center alignment */
+.scrollHintWrapper {
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+/* Scrollable inner content */
+.techIcons,
+.clientsLogos {
+  display: flex;
+  
+  
+  animation: scrollWiggle 1.6s ease-in-out 1;
+  scroll-snap-align: center;
+  will-change: transform;
+}
+
+/* Icon styles */
+.techIcon,
+.clientLogo {
+  
+  scroll-snap-align: center;
+}
+
+/* Scroll hint animation on load */
+@keyframes scrollWiggle {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(25px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.wiggle {
+  animation: wiggleAnim 0.7s ease-in-out;
+}
+
+@keyframes wiggleAnim {
+  0% { transform: translateX(0); }
+  15% { transform: translateX(-5px); }
+  30% { transform: translateX(5px); }
+  45% { transform: translateX(-5px); }
+  60% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+
+/* ========== FOOTER SECTION ========== */
+.footerSection {
+  background-color: #030e3e;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+.footerGrid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footerColumn {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footerLogo {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.footerColumn h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footerColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerColumn ul li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footerColumn ul li:hover {
+  color: #fff;
+}
+
+.footerColumn p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.contactBox {
+  background-color: #1e2a5a;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contactBox i {
+  color: #fff;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.socialIcons i {
+  font-size: 1rem;
+  color: #ccc;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.socialIcons i:hover {
+  color: #ffffff;
+}
+/* ======= FOOTER SECTION ======= */
+.footerSection {
+  background-color: #030e3e;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+.footerGrid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+/* ==== COLUMN BASE STYLE ==== */
+.footerColumn {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* ==== SPEEDLINK LOGO + TEXT ==== */
+.footerLogo {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.footerColumn p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* ==== TITLES ==== */
+.footerColumn h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* ==== LINK LIST ==== */
+.footerColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerColumn ul li {
+  padding: 10px 0;
+  font-size: 0.95rem;
+  color: #ccc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footerColumn ul li:last-child {
+  border-bottom: none;
+}
+
+.footerColumn ul li:hover {
+  color: #fff;
+}
+
+/* ==== CONTACT INFO ==== */
+.contactBox {
+  background-color: #1e2a5a;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contactBox i {
+  color: #fff;
+}
+
+/* ==== SOCIAL ICONS ==== */
+.socialIcons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.socialIcons i {
+  font-size: 1rem;
+  color: #ccc;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.socialIcons i:hover {
+  color: #ffffff;
+}
