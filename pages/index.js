@@ -193,7 +193,7 @@ useEffect(() => {
                 <Image
                   src="/image2.jpg"
                   alt="Pearson VUE Authorized Center"
-                  width={150}
+                  width={130}
                   height={80}
                   unoptimized
                 />
@@ -544,15 +544,16 @@ useEffect(() => {
       </section>
 
 {/* Footer Section */}
-<footer className={styles.footerSection}>
+ <footer className={styles.footerSection}>
   <div className={styles.footerGrid}>
     <div className={styles.footerColumn}>
-      <img src="/marc2020.png" alt="Speedlink Logo" className={styles.footerLogo} />
+      <img src="/slogo.png" alt="Speedlink Logo" className={styles.footerLogo} />
       <p>
         Providing ICT solutions that make businesses stand out. We can provide you with the
         highest levels of technical expertise, strategic thinking, and hands-on skills.
       </p>
     </div>
+
     <div className={styles.footerColumn}>
       <h4>Services</h4>
       <ul>
@@ -562,6 +563,7 @@ useEffect(() => {
         <li>Certified Training</li>
       </ul>
     </div>
+
     <div className={styles.footerColumn}>
       <h4>Quick Links</h4>
       <ul>
@@ -573,14 +575,18 @@ useEffect(() => {
         <li>Meet our Team</li>
       </ul>
     </div>
+
     <div className={styles.footerColumn}>
       <h4>Locate us</h4>
-      <p>Road 6 Extension, Okey Wali Estate,<br />Rumualogu, Port Harcourt, Rivers State</p>
+      <p>
+        Road 6 Extension, Okey Wali Estate,<br />
+        Rumualogu, Port Harcourt, Rivers State
+      </p>
       <div className={styles.contactBox}>
-        <i className="fas fa-phone"></i> tel: +2349167716220
+        <i className="fas fa-phone"></i> <span>tel: +2349167716220</span>
       </div>
       <div className={styles.contactBox}>
-        <i className="fas fa-envelope"></i> info@speedlinkng.com
+        <i className="fas fa-envelope"></i> <span>info@speedlinkng.com</span>
       </div>
       <div className={styles.socialIcons}>
         <i className="fab fa-facebook-f"></i>
@@ -591,7 +597,18 @@ useEffect(() => {
       </div>
     </div>
   </div>
+<div className={styles.footerGrid}>
+    {/* ...your four columns stay the same here... */}
+  </div>
+
+  {/* Copyright bar at the very bottom */}
+  <div className={styles.footerBottom}>
+    Copyright © 2022 - {new Date().getFullYear()} Speedlink Hi-TECH Solutions Limited
+  </div>
+  
 </footer>
+
+
 
 
 
