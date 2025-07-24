@@ -216,13 +216,15 @@
   }
 }
 
-.introSection {
+ .introSection {
   background-color: white;
   padding: 4rem 2rem;
   background-image: url('/image12.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;      /* Fit full width, natural height */
+  background-position: top center; /* Stick to top */
 }
+
 
 .introContent {
   display: flex;
@@ -309,29 +311,28 @@ margin-top: 50px;
 
  .certificationContainer {
   width: 100%;
-  max-width: 100%; /* allow it to span full width of the viewport */
+  max-width: 500%; /* allow it to span full width of the viewport */
   background: #0f3b82;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 2rem  9rem; /* increased padding for more horizontal space */
+  padding: 1rem  5.5rem; /* increased padding for more horizontal space */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
-  margin: 5 auto 1rem auto;
+  margin: 5 auto 2rem auto;
   flex-wrap: wrap;
 }
 
  .certLogo {
   display: flex;
   align-items: center;
+  transform: translateX(-10px);  /* ✅ Moves logo to the left */
 }
-
-
 .certLogo img {
-  max-width: 100px; /* or adjust as needed */
+  max-width: 140px;
   height: auto;
   border-radius: 8px;
 }
@@ -339,6 +340,7 @@ margin-top: 50px;
 .certText {
   flex: 1 1 auto;
   min-width: 200px;
+  padding: 0 1rem;  /* Optional spacing between logo and text */
 }
 
 .certText h2 {
@@ -350,20 +352,21 @@ margin-top: 50px;
   margin: 0;
 }
 
+  
 .certButton {
   flex: 0 0 auto;
+  transform: translateX(10px);  /* still shifts right slightly */
 }
-
-.getCertifiedBtn {
+ .getCertifiedBtn {
   background-color: red;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  padding: 1rem 2rem;          /* Bigger button */
+  font-size: 1.1rem;           /* Bigger text */
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
 }
-
 
 /* === Services We Offer Section Styles === */
  /* === Services We Offer Section (Styled to match screenshot) === */
@@ -938,9 +941,10 @@ margin-top: 50px;
 /* ========== TECHNOLOGY STACK SECTION ========== */
 .techStackSection {
   background-color: #2e2e2e;
-  padding: 60px 20px;
+  padding: 0px 450px;
   color: #fff;
   text-align: center;
+  
 }
 
 .techStackSection h2 {
@@ -959,13 +963,6 @@ margin-top: 50px;
   border-radius: 4px;
 }
 
-.techIcons {
-  margin-top: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-}
 
 .techIcon {
   width: 100px;
@@ -980,6 +977,28 @@ margin-top: 50px;
   transform: scale(1.1);
   opacity: 1;
 }
+
+ .techIcons {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  user-select: none;
+  cursor: grab;
+}
+.techIcons::-webkit-scrollbar {
+  display: none;
+}
+
+.techIcon {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  margin: 0 50px;
+  object-fit: contain;
+
+}
+
 
 /* ========== TOP CLIENTS SECTION ========== */
  .clientsSection {
@@ -1051,44 +1070,9 @@ margin-top: 50px;
   will-change: transform;
 }
 
-/* Icon styles */
-.techIcon,
-.clientLogo {
-  
-  scroll-snap-align: center;
-}
-
-/* Scroll hint animation on load */
-@keyframes scrollWiggle {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-25px);
-  }
-  50% {
-    transform: translateX(0);
-  }
-  75% {
-    transform: translateX(25px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-.wiggle {
-  animation: wiggleAnim 0.7s ease-in-out;
-}
-
-@keyframes wiggleAnim {
-  0% { transform: translateX(0); }
-  15% { transform: translateX(-5px); }
-  30% { transform: translateX(5px); }
-  45% { transform: translateX(-5px); }
-  60% { transform: translateX(5px); }
-  75% { transform: translateX(-3px); }
-  100% { transform: translateX(0); }
-}
+ 
+ 
+ 
 
 
 /* ========== FOOTER SECTION ========== */

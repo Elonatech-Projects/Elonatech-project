@@ -14,34 +14,28 @@ const [clientVisible, setClientVisible] = useState(false);
 
 const techRef = useRef(null);
 const clientRef = useRef(null);
-
+ 
 useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const target = entry.target;
-        if (entry.isIntersecting) {
-          if (target.id === "tech") {
-            setTechVisible(true);
-            setTimeout(() => setTechVisible(false), 2000);
-          } else if (target.id === "clients") {
-            setClientVisible(true);
-            setTimeout(() => setClientVisible(false), 2000);
-          }
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
+  const el = techRef.current;
+  if (!el) return;
 
-  if (techRef.current) observer.observe(techRef.current);
-  if (clientRef.current) observer.observe(clientRef.current);
+  const singleSetWidth = el.scrollWidth / 3;
+  el.scrollLeft = singleSetWidth; // START in the center!
 
-  return () => {
-    if (techRef.current) observer.unobserve(techRef.current);
-    if (clientRef.current) observer.unobserve(clientRef.current);
+  const handleScroll = () => {
+    if (el.scrollLeft <= 0) {
+      // Scroll too far left → snap back to center
+      el.scrollLeft = singleSetWidth;
+    } else if (el.scrollLeft >= 2 * singleSetWidth) {
+      // Scroll too far right → snap back to center
+      el.scrollLeft = singleSetWidth;
+    }
   };
+
+  el.addEventListener("scroll", handleScroll);
+  return () => el.removeEventListener("scroll", handleScroll);
 }, []);
+
 
 
   const services = {
@@ -106,6 +100,49 @@ useEffect(() => {
       ],
     },
   };
+
+  const isDragging = useRef(false);
+const startX = useRef(0);
+const scrollLeft = useRef(0);
+
+const handleMouseDown = (e, refType) => {
+  isDragging.current = true;
+  startX.current = e.pageX - techRef.current.offsetLeft;
+  scrollLeft.current = techRef.current.scrollLeft;
+};
+
+const handleMouseMove = (e) => {
+  if (!isDragging.current) return;
+  e.preventDefault();
+  const x = e.pageX - techRef.current.offsetLeft;
+  const walk = x - startX.current;
+  techRef.current.scrollLeft = scrollLeft.current - walk;
+};
+
+const handleMouseUp = () => {
+  isDragging.current = false;
+};
+
+const handleMouseLeave = () => {
+  isDragging.current = false;
+};
+
+// Touch support (for mobile)
+const handleTouchStart = (e) => {
+  startX.current = e.touches[0].pageX;
+  scrollLeft.current = techRef.current.scrollLeft;
+};
+
+const handleTouchMove = (e) => {
+  const x = e.touches[0].pageX;
+  const walk = x - startX.current;
+  techRef.current.scrollLeft = scrollLeft.current - walk;
+};
+
+const handleTouchEnd = () => {
+  // no-op for now
+};
+
 
   return (
     <div>
@@ -191,7 +228,7 @@ useEffect(() => {
             <div className={styles.certificationContainer}>
               <div className={styles.certLogo}>
                 <Image
-                  src="/image2.jpg"
+                  src="/image2.jpg" 
                   alt="Pearson VUE Authorized Center"
                   width={130}
                   height={80}
@@ -489,30 +526,48 @@ useEffect(() => {
     <section className={styles.techStackSection}>
         <h2 className={styles.sectionTitle}>Technology stack</h2>
         <div className={styles.scrollHintWrapper}>
-          <div
-            ref={techRef}
-            id="tech"
-            className={`${styles.techIcons} ${techVisible ? styles.wiggle : ""}`}
-          >
-            {[
-              "/android.png",
-              "/postgre.png",
-              "/node.png",
-              "/gulp.png",
-              "/react.png",
-              "/css.png",
-              "/python.png",
-              "/php.png",
-              "/android.png",
-            ].map((icon, index) => (
-              <img
-                key={index}
-                src={icon}
-                alt={`Tech ${index}`}
-                className={styles.techIcon}
-              />
-            ))}
-          </div>
+         <div
+  ref={techRef}
+  id="tech"
+  className={`${styles.techIcons} ${techVisible ? styles.wiggle : ""}`}
+  onMouseDown={(e) => handleMouseDown(e)}
+  onMouseMove={(e) => handleMouseMove(e)}
+  onMouseUp={handleMouseUp}
+  onMouseLeave={handleMouseLeave}
+  onTouchStart={handleTouchStart}
+  onTouchMove={handleTouchMove}
+  onTouchEnd={handleTouchEnd}
+>
+  {[...Array(3)].flatMap((_, i) =>
+    [
+      "/android.png",
+      "/postgre.png",
+      "/node.png",
+      "/gulp.png",
+      "/react.png",
+      "/css.png",
+      "/python.png",
+      "/php.png",
+      "/android.png",
+      "/postgre.png",
+      "/node.png",
+      "/gulp.png",
+      "/react.png",
+      "/css.png",
+      "/python.png",
+      "/php.png",
+    ].map((icon, index) => ( 
+      <img
+        key={`${i}-${index}`}
+        src={icon}
+        alt={`Tech ${index}`}
+        className={styles.techIcon}
+        draggable={false}
+      />
+    ))
+  )}
+</div>
+
         </div>
       </section>
 
