@@ -941,7 +941,7 @@ margin-top: 50px;
 /* ========== TECHNOLOGY STACK SECTION ========== */
 .techStackSection {
   background-color: #2e2e2e;
-  padding: 0px 450px;
+  padding: 2px 470px;
   color: #fff;
   text-align: center;
   
@@ -965,7 +965,7 @@ margin-top: 50px;
 
 
 .techIcon {
-  width: 50px;
+  width: 80px;
   height: 50px;
   object-fit: contain;
   filter: brightness(0) invert(1);
@@ -991,9 +991,9 @@ margin-top: 50px;
 }
 
 .techIcon {
-  width: 40px;
+  width: 90px;
   height: 80px;
-  flex-shrink: 0;
+  flex-shrink: 2;
   margin: 0 60px;
   object-fit: contain;
 
