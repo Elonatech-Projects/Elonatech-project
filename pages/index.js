@@ -14,6 +14,7 @@ const [clientVisible, setClientVisible] = useState(false);
 
 const techRef = useRef(null);
 const clientRef = useRef(null);
+
  
 useEffect(() => {
   const el = techRef.current;
@@ -171,18 +172,149 @@ const handleTouchEnd = () => {
             unoptimized
           />
         </div>
-        <nav className={styles.navbar}>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Case Study</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#"><i className="fas fa-search"></i></a></li>
-            <li><button className={styles.contactBtn}>Get in touch</button></li>
-          </ul>
-        </nav>
+     <nav className={styles.navbar}>
+  <ul>
+    <li><a href="#">Home</a></li>
+
+    {/* About Us */}
+    <li className={styles.dropdown}>
+      <a href="#">About Us</a>
+      <div className={styles.dropdownContent}>
+        
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Who we are</strong><p>Our history, mission, vision and Values</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>What we do</strong><p>Wide range of IT services we offer.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Why Speedlink</strong><p>Solutions that make your business stand out.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Meet our Team</strong><p>Hardworking team members.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Partners & Clients</strong><p>Our top partners and clients.</p></a>
+        </div>
+      </div>
+    </li>
+
+    {/* Services */}
+ <li className={`${styles.dropdown} ${styles.servicesDropdown}`}>
+  <a href="#">Services</a>
+  <div className={styles.dropdownContent}>
+    <div className={styles.grid}>
+      <div className={styles.serviceGroup}>
+        <h4>IT Services</h4>
+        <ul>
+          <li>Software Application Development</li>
+          <li>Web Design/Development</li>
+          <li>Software Installations</li>
+        </ul>
+      </div>
+      <div className={styles.serviceGroup}>
+        <h4>Networking Services</h4>
+        <ul>
+          <li>Fiber-to-the-Home</li>
+          <li>Routing and Switching</li>
+          <li>VOIP - Voice Over IP</li>
+          <li>ISP - Internet Provider</li>
+        </ul>
+      </div>
+      <div className={styles.serviceGroup}>
+        <h4>Technical Security</h4>
+        <ul>
+          <li>Video Surveillance (CCTV)</li>
+          <li>Intrusion Prevention</li>
+          <li>Fire Detection/Extinguishers</li>
+          <li>Alarm Systems</li>
+        </ul>
+      </div>
+      <div className={styles.serviceGroup}>
+        <h4>Cloud Services</h4>
+        <ul>
+          <li>Storage Infrastructure</li>
+          <li>Cloud Hosting</li>
+          <li>Cloud ERP/CRM</li>
+        </ul>
+      </div>
+      <div className={styles.serviceGroup}>
+        <h4>Digital Marketing</h4>
+        <ul>
+          <li>Social Media Marketing</li>
+          <li>Digital Advertising</li>
+          <li>Media Planning/Buying</li>
+          <li>SEO Optimization</li>
+        </ul>
+      </div>
+      <div className={styles.serviceGroup}>
+        <h4>Certified Training</h4>
+        <ul>
+          <li>Mikrotik Certification</li>
+          <li>CCTV Installation</li>
+          <li>Web App Development</li>
+          <li>Web Design & Dev</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</li>
+
+
+
+    {/* Case Study */}
+    <li className={styles.dropdown}>
+      <a href="#">Case Study</a>
+      <div className={styles.dropdownContent}>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Banking Sector</strong><p>How we improved fintech infrastructure.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Education</strong><p>Cloud services for schools & e-learning.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Oil & Gas</strong><p>Robust security and networking solutions.</p></a>
+        </div>
+      </div>
+    </li>
+
+    {/* Products */}
+    <li className={styles.dropdown}>
+      <a href="#">Products</a>
+      <div className={styles.dropdownContent}>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Access Control</strong><p>Biometric systems and smart locks.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Surveillance</strong><p>High-end CCTV products and kits.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Communication</strong><p>VOIP phones, routers and switches.</p></a>
+        </div>
+      </div>
+    </li>
+
+    {/* Resources */}
+    <li className={styles.dropdown}>
+      <a href="#">Resources</a>
+      <div className={styles.dropdownContent}>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Blog</strong><p>Latest tech trends and company news.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Downloads</strong><p>Company brochures and materials.</p></a>
+        </div>
+        <div className={styles.dropdownItem}>
+          <a href="#"><strong>Support</strong><p>Help desk and customer care tools.</p></a>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="#"><i className="fas fa-search"></i></a></li>
+    <li><button className={styles.contactBtn}>Get in touch</button></li>
+  </ul>
+</nav>
+
       </header>
 
       {/* Hero Section */}

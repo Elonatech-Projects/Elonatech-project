@@ -52,7 +52,7 @@
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 20px;
+  gap: 50px;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
@@ -1199,4 +1199,116 @@ margin-top: 50px;
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
+}
+ /* Generic Dropdown */
+ /* Base Dropdown Styles */
+.dropdown {
+  position: relative;
+  white-space: nowrap;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  padding: 15px 20px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid red;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Services Dropdown Specific */
+.dropdown.servicesDropdown .dropdownContent {
+  min-width: 1000px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  padding: 50px 60px;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.dropdown.servicesDropdown:hover .dropdownContent {
+  transform: translateX(-50%) translateY(0);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 40px 60px;
+}
+
+.serviceGroup h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+.serviceGroup ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.serviceGroup ul li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.serviceGroup ul :hover {
+  color: #e60000;
+}
+
+.serviceGroup ul li:last-child {
+  border-bottom: none;
+}
+
+ /* === Top Red Hover Line for All Nav Links === */
+.navbar li {
+  position: relative;
+}
+
+.navbar li  {
+  position: relative;
+  display: inline-block;
+  padding: 12px 0;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
+/* Red top line */
+.navbar li ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: red;
+  transition: width 0.3s ease;
+  z-index: 5;
+}
+
+/* Expand on hover */
+.navbar li:hover a::before,
+.navbar li a:hover::before {
+  width: 100%;
 }
