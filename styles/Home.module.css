@@ -939,13 +939,14 @@ margin-top: 50px;
   line-height: 1.6;
 }
 /* ========== TECHNOLOGY STACK SECTION ========== */
-.techStackSection {
+ .techStackSection {
   background-color: #2e2e2e;
-  padding: 2px 470px;
+  padding: 60px 300px; /* Wider horizontal padding */
   color: #fff;
   text-align: center;
-  
 }
+
+
 
 .techStackSection h2 {
   font-size: 2rem;
